@@ -1,0 +1,59 @@
+*{
+  
+  background-color: black;
+}
+
+.navbar-list li a {
+  color: white !important; 
+  text-decoration: none;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+
+img{
+  align-items: center;
+}
+
+/* Global CSS (lägg till i din CSS-fil) */
+p {
+  color: white;
+  font-family: "adobe-caslon-pro,times,georgia,serif";
+  font-size: "calc(18px + 0.5vw)";
+  max-width: "100%"; /* Full bredd upp till 1200px */
+  line-height: "1.6";
+  margin: "26px 0"; /* Inga horisontella marginaler */
+  padding: "10px";
+}
+
+@media (min-width: 1201px) {
+  p {
+      max-width: "800px"; /* Begränsad bredd över 1200px */
+      margin: "26px auto"; /* Centrerad över 1200px */
+      background: rgba(0, 0, 0, 0.5); /* Halvtransparent svart bakgrund */
+      border-radius: 8px; /* Runda hörn */
+  }
+}
+
+.buttonStyle {
+  display: inline-block;
+  padding: 15px 32px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "MonumentGrotesk-Regular,helvetica,arial,sans-serif";
+  letter-spacing: ".5px";
+  margin: 4px 2px;
+  min-width: 246px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.buttonStyle:hover{
+  background-color: white;
+  color: black;
+}
