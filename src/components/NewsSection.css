@@ -1,0 +1,28 @@
+/* Basstil för hela nyhetssektionen */
+.news-section {
+    padding: 20px;
+  }
+  
+  /* Flexbox-container för att placera nyhetskorten i rad */
+  .news-cards {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Grundläggande stil för varje nyhetskort */
+  .news-card {
+    flex: 1;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Här kan jag lägga till fler stilar om jag behöver */
+  }
+  
+  /* Stil för nyhetsartikelns bild */
+  .news-card img {
+    width: 100%;
+    /* Kanske andra stilar senare, t.ex. en övergång eller en hover-effekt */
+  }
+  
+  /* Jag kan lägga till fler stilar här om jag vill göra något speciellt med rubrikerna, datumen osv. */
+  
+  

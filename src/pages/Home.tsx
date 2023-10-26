@@ -5,6 +5,7 @@ import Banner from "../components/Banner";
 import LargeBanner from "../components/LargeBanner";
 import Footer from "../components/Footer";
 import Video from "../components/Video";
+import { NewsSection } from "../components/NewsSection";
 
 function Home() {
   return (
@@ -13,6 +14,7 @@ function Home() {
       <Banner />
       <LargeBanner />
       <Video />
+      <NewsSection />
       <Footer />
     </>
   );

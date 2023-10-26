@@ -13,6 +13,7 @@ function Video() {
     BackgroundVideo4,
   ];
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [isFading, setIsFading] = useState(false);
 
   const switchToNextVideo = () => {
     if (currentVideo < videos.length - 1) {
@@ -67,7 +68,7 @@ function Video() {
       >
         <h1 style={{ backgroundColor: "rgba(0, 0, 0, 0)" }}>MALMÖ</h1>
         <p style={{ backgroundColor: "rgba(0, 0, 0, 0)" }}>
-          Your amazing subtitle here
+          Mångfald, möten och möjligheter
         </p>
       </div>
     </div>
