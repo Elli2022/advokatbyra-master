@@ -1,32 +1,92 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import NewsCard from "./NewsCard";
+import "whatwg-fetch";
+
+const API_KEY = "d83b8fc981ee4157944ca434e8a4c295";
+const BASE_URL = "https://newsapi.org/v2/top-headlines?country=se"; // Använder top-headlines för att få de senaste nyheterna
+const SEARCH_TERMS = [
+  "finans",
+  "juridik",
+  "fastighetsrätt",
+  "familjerätt",
+  "skatterätt",
+  "bank",
+];
+
+type Article = {
+  title?: string;
+  description?: string;
+  url?: string;
+  urlToImage?: string;
+  publishedAt?: string;
+  category?: string;
+};
+
+interface NewsCardProps {
+  image?: string;
+  title: string;
+  category: string;
+  date?: string;
+}
 
 export function NewsSection() {
-  // Här definierar jag data för nyhetsartiklarna. Detta skulle kunna hämtas från en API i framtiden.
-  const newsData = [
-    {
-      image: "/path/to/image1.jpg",
-      title:
-        "CapMan investerar i projekt för logistikanläggning i LogPoint South",
-      category: "FASTIGHETSRÄTT",
-      date: "11 OKTOBER 2023",
-    },
-    // Lägger till fler nyhetsartiklar här när jag har dem
-  ];
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    console.log("Fetching articles...");
+    fetchArticles();
+  }, []);
+
+  function fetchArticles() {
+    const url = `${BASE_URL}&apiKey=${API_KEY}`;
+
+    fetch(url)
+      .then(status)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Fetched data:", data);
+        if (data.articles && Array.isArray(data.articles)) {
+          setArticles(data.articles);
+        } else {
+          setError("Inga artiklar hittades.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching articles:", error);
+        setError(
+          "Det uppstod ett fel när vi försökte hämta artiklar. Försök igen senare."
+        );
+      });
+  }
+
+  function status(res: Response) {
+    if (!res.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return res;
+  }
 
   return (
     <div className="news-section">
-      {/* Grundläggande rubrik för nyhetssektionen */}
       <h1>Nyheter</h1>
-
-      {/* Här mappar jag över varje nyhetsartikel och renderar en NewsCard för varje */}
-      <div className="news-cards">
-        {newsData.map((newsItem, index) => (
-          <NewsCard key={index} {...newsItem} />
-        ))}
-      </div>
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <div className="news-cards">
+          {articles.map((article, index) => (
+            <NewsCard
+              key={article.url ?? index}
+              image={article.urlToImage ?? "fallback-image-url-här"}
+              title={article.title ?? "NYHETER"}
+              category={article.category ?? "Okategoriserad"}
+              date={article.publishedAt ?? "datum"}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
-export default { NewsSection };
+export default NewsSection;
