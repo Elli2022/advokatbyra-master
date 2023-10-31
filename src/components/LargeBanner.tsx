@@ -37,18 +37,23 @@ function LargeBanner() {
           style={{
             backgroundColor: "rgba(0, 0, 0, 0)",
             color: "white",
-            display: "flex",
-            fontFamily: "adobe-caslon-pro,times,georgia,serif",
-            fontSize: "calc(56px + 0.5vw)", // Exempel på responsiv fontstorlek
-            maxWidth: "800px", // Maxbredd för textbehållaren
-            lineHeight: "1.6", // Optimal line-height för läsbarhet
-            margin: "26px auto", // Centrera behållaren horisontellt med 'auto'
-            padding: "10px", // Utrymme runt texten
+            position: "relative",
+            // top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            textAlign: "left",
+            fontFamily: "Caslon224Std-Book,times,georgia,serif",
+            fontWeight: 300,
+            lineHeight: 1.2,
+            fontSize: "34px",
           }}
         >
-          Welcome to Our Website
+          Välkommen till Wernberg Wernberg
         </h2>
-        <div style={{ backgroundColor: "transparent" }}>
+        <div
+          className="föräldrarelement"
+          style={{ backgroundColor: "transparent" }}
+        >
           <Link to="/about" className="buttonStyle">
             Om oss
           </Link>

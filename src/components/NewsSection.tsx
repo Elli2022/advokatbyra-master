@@ -69,31 +69,49 @@ export function NewsSection() {
   }
 
   return (
-    <div className="news-section">
-      <h1>Nyheter</h1>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <div className="news-cards">
-          {articles.map((article, index) => (
-            <NewsCard
-              key={article.url ?? index}
-              image={article.urlToImage ?? "fallback-image-url-här"}
-              title={
-                <a
-                  href={article.url ?? "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {article.title ?? "NYHETER"}
-                </a>
-              }
-              category={article.category ?? "Okategoriserad"}
-              date={article.publishedAt ?? "datum"}
-            />
-          ))}
-        </div>
-      )}
+    <div className="wrapper">
+      <h2
+        className="section-title"
+        style={{
+          color: "white",
+          fontFamily: "Caslon224Std-Book,times,georgia,serif",
+          fontWeight: 300,
+          lineHeight: 1.2,
+          fontSize: "34px",
+          padding: "21px",
+        }}
+      >
+        Nyheter
+      </h2>
+      <div className="news-section">
+        {error ? (
+          <p>{error}</p>
+        ) : (
+          <div className="news-grid">
+            {articles.map((article, index) => (
+              <div className="news-card" key={article.url ?? index}>
+                <img
+                  src={article.urlToImage ?? "fallback-image-url-här"}
+                  alt={article.title}
+                />
+                <h2>
+                  <a
+                    href={article.url ?? "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {article.title ?? "NYHETER"}
+                  </a>
+                </h2>
+                <p>
+                  {article.category ?? "Okategoriserad"} •{" "}
+                  {article.publishedAt ?? "datum"}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
