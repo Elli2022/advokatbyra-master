@@ -81,3 +81,7 @@ body .news-section h5,
 body .news-section h6 {
     color: white !important;
 }
+
+a{
+  color: white !important;
+}

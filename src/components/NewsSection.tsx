@@ -25,7 +25,7 @@ type Article = {
 
 interface NewsCardProps {
   image?: string;
-  title: string;
+  title: JSX.Element | string; // Uppdaterad prop typ
   category: string;
   date?: string;
 }
@@ -79,7 +79,15 @@ export function NewsSection() {
             <NewsCard
               key={article.url ?? index}
               image={article.urlToImage ?? "fallback-image-url-här"}
-              title={article.title ?? "NYHETER"}
+              title={
+                <a
+                  href={article.url ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {article.title ?? "NYHETER"}
+                </a>
+              }
               category={article.category ?? "Okategoriserad"}
               date={article.publishedAt ?? "datum"}
             />
