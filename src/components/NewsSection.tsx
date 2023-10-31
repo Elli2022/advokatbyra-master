@@ -3,7 +3,8 @@ import NewsCard from "./NewsCard";
 import "whatwg-fetch";
 
 const API_KEY = "d83b8fc981ee4157944ca434e8a4c295";
-const BASE_URL = "https://newsapi.org/v2/top-headlines?country=se"; // Använder top-headlines för att få de senaste nyheterna
+const BASE_URL =
+  "https://newsapi.org/v2/everything?q=juridik&top-headlines?country=se"; // Använder top-headlines för att få de senaste nyheterna
 const SEARCH_TERMS = [
   "finans",
   "juridik",

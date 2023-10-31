@@ -73,3 +73,11 @@ video.fading {
 }
 
 
+body .news-section h1, 
+body .news-section h2, 
+body .news-section h3, 
+body .news-section h4, 
+body .news-section h5, 
+body .news-section h6 {
+    color: white !important;
+}

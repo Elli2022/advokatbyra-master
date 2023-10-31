@@ -1,6 +1,7 @@
 /* Basstil för hela nyhetssektionen */
 .news-section {
-    padding: 20px;
+    padding: 20px; 
+    
   }
   
   /* Flexbox-container för att placera nyhetskorten i rad */
@@ -14,6 +15,7 @@
     flex: 1;
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
     /* Här kan jag lägga till fler stilar om jag behöver */
   }
   
@@ -25,4 +27,6 @@
   
   /* Jag kan lägga till fler stilar här om jag vill göra något speciellt med rubrikerna, datumen osv. */
   
-  
+  h2.news-card{
+    color: white !important;
+  }
