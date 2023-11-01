@@ -48,7 +48,7 @@ function LargeBanner() {
             fontSize: "34px",
           }}
         >
-          Välkommen till Wernberg Wernberg
+          Välkommen till Wernberg
         </h2>
         <div
           className="föräldrarelement"

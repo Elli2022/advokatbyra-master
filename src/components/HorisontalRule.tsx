@@ -6,7 +6,7 @@ function HorisontalRule() {
       <hr
         style={{
           borderColor: "white",
-          borderWidth: "2px",
+          borderWidth: "0.5px",
           borderStyle: "solid",
           margin: "50px 70px",
         }}

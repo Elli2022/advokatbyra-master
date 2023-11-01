@@ -1,11 +1,11 @@
 import React from "react";
-import employees1 from "../images/employees1.jpg";
+import employees2 from "../images/employees2.jpg";
 
-function EmployesImage1() {
+function EmployeesImage2() {
   return (
     <div style={{ width: "100%", height: "100%" }}>
       <img
-        src={employees1}
+        src={employees2}
         alt="employePicture"
         style={{ width: "100%", height: "100%" }}
       />
@@ -13,4 +13,4 @@ function EmployesImage1() {
   );
 }
 
-export default EmployesImage1;
+export default EmployeesImage2;

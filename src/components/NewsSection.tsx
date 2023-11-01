@@ -116,7 +116,9 @@ export function NewsSection() {
                   alt={article.title}
                   style={imageStyles}
                 />
-                <h2 style={{ margin: "10px 0", fontSize: "20px" }}>
+                <h2
+                  style={{ margin: "10px 0", fontSize: "calc(18px + 0.5vw)" }}
+                >
                   <a
                     href={article.url ?? "#"}
                     target="_blank"
@@ -149,6 +151,9 @@ const newsCardStyles: CSSProperties = {
   boxSizing: "border-box",
   margin: "40px 0px 0px",
   fontFamily: "Caslon224Std-Book,times,georgia,serif",
+  color: "white",
+  fontSize: "calc(18px + 0.5vw)",
+  lineHeight: "1.6",
 };
 
 const imageStyles: CSSProperties = {
