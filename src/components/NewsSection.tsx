@@ -1,18 +1,8 @@
-import React, { useEffect, useState } from "react";
-import NewsCard from "./NewsCard";
-import "whatwg-fetch";
+import React, { useEffect, useState, CSSProperties } from "react";
 
 const API_KEY = "d83b8fc981ee4157944ca434e8a4c295";
 const BASE_URL =
-  "https://newsapi.org/v2/everything?q=juridik&top-headlines?country=se"; // Använder top-headlines för att få de senaste nyheterna
-const SEARCH_TERMS = [
-  "finans",
-  "juridik",
-  "fastighetsrätt",
-  "familjerätt",
-  "skatterätt",
-  "bank",
-];
+  "https://newsapi.org/v2/everything?q=juridik&top-headlines?country=se";
 
 type Article = {
   title?: string;
@@ -23,20 +13,26 @@ type Article = {
   category?: string;
 };
 
-interface NewsCardProps {
-  image?: string;
-  title: JSX.Element | string; // Uppdaterad prop typ
-  category: string;
-  date?: string;
-}
-
 export function NewsSection() {
   const [articles, setArticles] = useState<Article[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [gridStyles, setGridStyles] = useState<CSSProperties>(getGridStyles());
 
   useEffect(() => {
     console.log("Fetching articles...");
     fetchArticles();
+  }, []);
+
+  useEffect(() => {
+    function handleResize() {
+      setGridStyles(getGridStyles());
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   function fetchArticles() {
@@ -68,6 +64,26 @@ export function NewsSection() {
     return res;
   }
 
+  function getGridStyles(): CSSProperties {
+    const width = window.innerWidth;
+    let columns = "repeat(auto-fill, minmax(400px, 1fr))";
+
+    if (width > 1200) {
+      columns = "repeat(4, 1fr)";
+    } else if (width > 550) {
+      columns = "repeat(2, 1fr)";
+    } else {
+      columns = "repeat(1, 1fr)";
+    }
+
+    return {
+      display: "grid",
+      gap: "20px",
+      gridTemplateColumns: columns,
+      justifyContent: "center",
+    };
+  }
+
   return (
     <div className="wrapper">
       <h2
@@ -83,18 +99,23 @@ export function NewsSection() {
       >
         Nyheter
       </h2>
-      <div className="news-section">
+      <div className="news-section" style={{ padding: "20px" }}>
         {error ? (
           <p>{error}</p>
         ) : (
-          <div className="news-grid">
+          <div className="news-grid" style={gridStyles}>
             {articles.map((article, index) => (
-              <div className="news-card" key={article.url ?? index}>
+              <div
+                className="news-card"
+                key={article.url ?? index}
+                style={newsCardStyles}
+              >
                 <img
                   src={article.urlToImage ?? "fallback-image-url-här"}
                   alt={article.title}
+                  style={imageStyles}
                 />
-                <h2>
+                <h2 style={{ margin: "10px 0", fontSize: "20px" }}>
                   <a
                     href={article.url ?? "#"}
                     target="_blank"
@@ -103,7 +124,7 @@ export function NewsSection() {
                     {article.title ?? "NYHETER"}
                   </a>
                 </h2>
-                <p>
+                <p style={{ margin: 0 }}>
                   {article.category ?? "Okategoriserad"} •{" "}
                   {article.publishedAt ?? "datum"}
                 </p>
@@ -115,5 +136,22 @@ export function NewsSection() {
     </div>
   );
 }
+
+const newsCardStyles: CSSProperties = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  maxWidth: "400px",
+  backgroundColor: "#fff",
+  padding: "20px",
+  boxSizing: "border-box",
+};
+
+const imageStyles: CSSProperties = {
+  width: "100%",
+  height: "200px",
+  objectFit: "cover",
+};
 
 export default NewsSection;
