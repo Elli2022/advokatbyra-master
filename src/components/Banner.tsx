@@ -1,5 +1,5 @@
 import React from "react";
-import TextInsideBanner from "./TextInsideBanner";
+// import TextInsideBanner from "./TextInsideBanner";
 
 function Banner() {
   return (

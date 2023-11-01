@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Title from "./components/Title";
-import Banner from "./components/Banner";
-import LargeBanner from "./components/LargeBanner";
+// import Navbar from "./components/Navbar";
+// import Title from "./components/Title";
+// import Banner from "./components/Banner";
+// import LargeBanner from "./components/LargeBanner";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contacts";
