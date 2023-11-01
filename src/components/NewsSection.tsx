@@ -148,6 +148,7 @@ const newsCardStyles: CSSProperties = {
   padding: "20px",
   boxSizing: "border-box",
   margin: "40px 0px 0px",
+  fontFamily: "Caslon224Std-Book,times,georgia,serif",
 };
 
 const imageStyles: CSSProperties = {
