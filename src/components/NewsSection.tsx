@@ -95,6 +95,7 @@ export function NewsSection() {
           lineHeight: 1.2,
           fontSize: "34px",
           padding: "21px",
+          textAlign: "center",
         }}
       >
         Nyheter
@@ -143,9 +144,10 @@ const newsCardStyles: CSSProperties = {
   alignItems: "center",
   justifyContent: "center",
   maxWidth: "400px",
-  backgroundColor: "#fff",
+  backgroundColor: "black",
   padding: "20px",
   boxSizing: "border-box",
+  margin: "40px 0px 0px",
 };
 
 const imageStyles: CSSProperties = {

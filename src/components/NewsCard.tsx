@@ -10,7 +10,7 @@ interface NewsCardProps {
 
 function NewsCard({ image, title, category, date }: NewsCardProps) {
   return (
-    <div className="news-card">
+    <div className="news-card" style={{ backgroundColor: "black" }}>
       {/* Bild för nyhetsartikeln */}
       <img src={image} />
 
