@@ -13,7 +13,7 @@ function Video() {
     BackgroundVideo4,
   ];
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const [isFading] = useState(false);
+  // const [isFading] = useState(false);
 
   const switchToNextVideo = () => {
     if (currentVideo < videos.length - 1) {
